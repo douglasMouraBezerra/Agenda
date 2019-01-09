@@ -18,7 +18,7 @@ public class AgendaDAO {
 	}
 
 	public void inserir(Agenda agenda) {
-		String sql = "insert into contatos(nome, email, endereco, datanascimento ) values ( ?, ?, ?, ? )";
+		String sql = "insert into contatos(nome, email, endereco, datanascimento) values ( ?, ?, ?, ? )";
 		try (PreparedStatement statement = connection.prepareStatement(sql)) {
 			statement.setString(1, agenda.getNome());
 			statement.setString(2, agenda.getEmail());
@@ -52,6 +52,7 @@ public class AgendaDAO {
 				agenda.setEmail(resultSet.getString("email"));
 				agenda.setEndereco(resultSet.getString("endereco"));
 				agenda.setDataNascimento(resultSet.getString("datanascimento"));
+				// montando a data
 
 				contatos.add(agenda);
 

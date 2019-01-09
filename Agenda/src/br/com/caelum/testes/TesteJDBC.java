@@ -15,7 +15,7 @@ public class TesteJDBC {
 		agenda.setNome("Dr Joel");
 		agenda.setEmail("drJoel@gmail.com");
 		agenda.setEndereco("Avenida 17 de Agosto 4031, Casa Forte,Recife-PE");
-		agenda.setDataNascimento("12/07/1960");
+		// agenda.setDataNascimento(new Date(Calendar.getInstance().getTime()));
 
 		AgendaDAO dao = new AgendaDAO();
 		dao.inserir(agenda);
@@ -27,7 +27,7 @@ public class TesteJDBC {
 		agenda.setNome("douglas de moura bezerra".toUpperCase());
 		agenda.setEmail("douglasmourab91@gmail.com".toUpperCase());
 		agenda.setEndereco("Rua Marrocos 87 Casa A, Pau Amarelo,Paulista-PE");
-		agenda.setDataNascimento("14/06/1991");
+		// agenda.setDataNascimento("14/06/1991");
 
 		AgendaDAO dao = new AgendaDAO();
 		dao.atualiza(agenda, 1L);
@@ -42,13 +42,11 @@ public class TesteJDBC {
 			System.out.println(agenda.toString());
 		}
 	}
-	
-	
+
 	@Test
 	public void initDeletar() {
 		AgendaDAO dao = new AgendaDAO();
 		dao.delete(3L);
 	}
-	
-	
+
 }

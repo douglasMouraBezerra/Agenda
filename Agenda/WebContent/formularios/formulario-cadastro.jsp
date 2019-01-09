@@ -28,9 +28,9 @@
 			<div class="form-group col-md-3">
 				<label for="datanascimento">Data Nascimento</label> <input
 					type="date" class="form-control" id="datanascimento"
-					name="datanascimento" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}">
+					name="datanascimento">
 			</div>
-			<input type="submit" class="btn btn-light" value="GRAVAR">
+			<input type="submit" class="btn btn-primary" value="GRAVAR">
 		</fieldset>
 	</form>
 
