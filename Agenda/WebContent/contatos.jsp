@@ -12,27 +12,24 @@
 <body>
 
 	<table border="1">
-	<jsp:useBean id="dao" class="br.com.caelum.dao.AgendaDAO" scope="page" />
-		<c:forEach var="contato" items="${dao.listaContatos }">
+		<jsp:useBean id="dao" class="br.com.caelum.dao.AgendaDAO" scope="page" />
+		<c:forEach var="contato" items="${dao.listaContatos }" varStatus="contador">
 			<tr>
 				<th>Nome</th>
 				<th>Email</th>
 				<th>Endereco</th>
 				<th>Data de Nascimento</th>
 			</tr>
-			<tr>
+			<tr bgcolor="#${contator % 2 == 0 ? 'DCDCDC' : 'CDCDC1' }">
 				<td>${contato.nome}</td>
 				<td>${contato.email}</td>
 				<td>${contato.endereco}</td>
-				<td>
-					<c:if test="${empty contato.dataNascimento }">
-						<c:out value="Inseir uma data de nascimento"/>
-					</c:if>
-					<c:if test="${not empty contato.dataNascimento }">
-						<fmt:formatDate value="${contato.dataNascimento }" pattern="dd-mm-yyyy" var="dataFormatada"/>
-						<c:out value="${dataFormatada}"/>
-					</c:if>
-				</td>				
+				<td><c:if test="${empty contato.dataNascimento }">
+						<c:out value="Inseir uma data de nascimento" />
+					</c:if> <c:if test="${not empty contato.dataNascimento }">
+						<%-- <fmt:formatDate value="${contato.dataNascimento }" pattern="dd-mm-yyyy" var="dataFormatada"/> --%>
+						<c:out value="${contato.dataNascimento }" />
+					</c:if></td>
 			</tr>
 		</c:forEach>
 	</table>
