@@ -72,7 +72,7 @@ public class AgendaDAO {
 	}
 
 	public void delete(Long id) {
-		String sql = "delete from contatos where id_contato = " + id;
+		String sql = "delete from contatos where id = " + id;
 		try (PreparedStatement statement = connection.prepareStatement(sql)) {
 			statement.execute();
 			connection.commit();
@@ -89,7 +89,7 @@ public class AgendaDAO {
 	}
 
 	public void atualiza(Agenda agenda, Long id) {
-		String sql = "UPDATE contatos set nome = ?, email = ?, endereco = ?, datanascimento = ? where id_contato = "
+		String sql = "UPDATE contatos set nome = ?, email = ?, endereco = ?, datanascimento = ? where id = "
 				+ id;
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setString(1, agenda.getNome());
