@@ -9,9 +9,14 @@
 </head>
 <body>
 
-	<a href="./formularios/formulario-cadastro.jsp"
-		class="badge badge-light">Cadastro</a>
-
+	<a href="./formularios/formulario-cadastro.jsp" class="btn btn-primary"
+		role="button">Cadastro</a>
 	
+	<hr/>
+	
+	<a href="lista-contatos.jsp" class="btn btn-primary" role="button">Lista
+		de Contatos</a>
+
+
 </body>
 </html>
