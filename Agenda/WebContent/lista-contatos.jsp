@@ -12,17 +12,24 @@
 <body>
 
 	<table border="1">
-		<jsp:useBean id="dao" class="br.com.caelum.dao.AgendaDAO" scope="page" />
-		<c:forEach var="contato" items="${dao.listaContatos }" varStatus="contador">
+		<jsp:useBean id="dao" class="br.com.caelum.dao.AgendaDAO" />
+		<c:forEach var="contato" items="${dao.listaContatos }">
 			<tr>
+				<th>ID</th>
 				<th>Nome</th>
 				<th>Email</th>
 				<th>Endereco</th>
 				<th>Data de Nascimento</th>
+				<th>Remover</th>
 			</tr>
-			<tr bgcolor="#${contator % 2 == 0 ? 'DCDCDC' : 'CDCDC1' }">
+			<tr>
+				<td>${contato.id}</td>
 				<td>${contato.nome}</td>
-				<td>${contato.email}</td>
+				<td><c:if test="${not empty contato.email }">
+						<a href="mailto:${contato.email}">${contato.email}</a>
+					</c:if> <c:if test="${empty contato.email }">
+						<c:out value="Cadastrar um email" />
+					</c:if></td>
 				<td>${contato.endereco}</td>
 				<td><c:if test="${empty contato.dataNascimento }">
 						<c:out value="Inseir uma data de nascimento" />
@@ -31,8 +38,8 @@
 						<c:out value="${contato.dataNascimento }" />
 					</c:if></td>
 				<td>
-					<a href="logica?logica=RemoveContatoLogic&id=${contao.id}">Remover</a>
-				</td>	
+					<a href="sistema?logica=RemoveContatoLogic&id=${contato.id}">Remover</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
