@@ -48,6 +48,7 @@ public class AgendaDAO {
 
 				// montando o contato
 				Agenda agenda = new Agenda();
+				agenda.setId(resultSet.getLong("id"));
 				agenda.setNome(resultSet.getString("nome"));
 				agenda.setEmail(resultSet.getString("email"));
 				agenda.setEndereco(resultSet.getString("endereco"));
