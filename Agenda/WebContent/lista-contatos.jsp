@@ -12,8 +12,10 @@
 <body>
 
 	<table border="1">
-		<jsp:useBean id="dao" class="br.com.caelum.dao.AgendaDAO" />
-		<c:forEach var="contato" items="${dao.listaContatos }">
+		<!-- O bean deixou de ser insatanciado na view por se tratar de um antipatternm-->
+		<!-- Criamos uma lógica que sera carregada no foreach, foi passada atraves da requisicao -->
+		<%-- 		<jsp:useBean id="dao" class="br.com.caelum.dao.AgendaDAO" /> --%>
+		<c:forEach var="contato" items="${contatos}">
 			<tr>
 				<th>ID</th>
 				<th>Nome</th>
@@ -37,9 +39,13 @@
 						<%-- <fmt:formatDate value="${contato.dataNascimento }" pattern="dd-mm-yyyy" var="dataFormatada"/> --%>
 						<c:out value="${contato.dataNascimento }" />
 					</c:if></td>
-				<td>
-					<a href="sistema?logica=RemoveContatoLogic&id=${contato.id}">Remover</a>
+				<td><a
+					href="sistema?logica=RemoveContatoLogic&id=${contato.id}">Remover</a>
 				</td>
+				<td>
+					<!-- 					<a href="sistema?logica=AdicionaContatoLogic"></a> -->
+				</td>
+
 			</tr>
 		</c:forEach>
 	</table>
